@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 export default function UploadButton() {
   const router = useRouter();
 
+  
   const handleUploadSuccess = (result: any) => {
     console.log("Upload Result:", result);
         if (result?.info?.public_id) {

@@ -1,11 +1,11 @@
 "use client";
 
-import Heart from "@/components/ui/icons/heart";
+import Heart from "@/components/icons/heart";
 import { CldImage } from "next-cloudinary";
 import React, { useState, useTransition } from "react";
 import { setAsFavoriteAction } from "./action";
 import { SearchResult } from "./page";
-import FullHeart from "@/components/ui/icons/full-heart";
+import FullHeart from "@/components/icons/full-heart";
 
 export default function CloudinaryImage(props:any & { imageData: SearchResult }) {
   const [transition, setTransition] = useTransition();

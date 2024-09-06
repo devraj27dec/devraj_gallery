@@ -1,12 +1,8 @@
-/* eslint-disable @next/next/no-async-client-component */
-
-
 import React from "react";
 import UploadButton from "./UploadButton";
 import GalleryGrid from "./gallery-grid";
 
 import cloudinary from '@/utils/cloudinaryConfig'
-import CloudinaryImage from "./cloudinary-image";
 
 
 export type SearchResult = {
@@ -33,20 +29,9 @@ export default async function GalleryPage() {
           <h1 className=" text-4xl font-bold">Gallery</h1> 
          <UploadButton />
         </div>
-        <div className=" grid grid-cols-4 gap-4">
-        {results.resources.map((result) => (
-          <CloudinaryImage 
-            key={result.public_id}
-            src={result.public_id}
-            publicId={result.public_id}
-            imageData={result}
-            width="400"
-            height="300"
-            alt="an image of something"
-          />
-        ))}
-        </div>
-        <GalleryGrid />
+        
+        <GalleryGrid images={results.resources}/>
+
       </div>
     </section>
   )

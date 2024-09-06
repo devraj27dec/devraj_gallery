@@ -1,6 +1,6 @@
 import React, { ComponentProps } from "react";
 
-type Props = {};
+
 
 export default function Heart(props: ComponentProps<"div">) {
   return (

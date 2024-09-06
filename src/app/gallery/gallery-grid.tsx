@@ -1,14 +1,30 @@
-"use client"
+"use client";
 
+import { ImageGrid } from "@/components/image-grid";
+import React from "react";
+import { SearchResult } from "./page";
+import CloudinaryImage from "../../components/cloudinary-image";
 
-import React from 'react'
-
-type Props = {}
-
-export default function GalleryGrid({}: Props) {
+export default function GalleryGrid({ images }: { images: SearchResult[] }) {
   return (
-    <div className=' grid grid-cols-4 gap-4'>
-        
-    </div>
-  )
+    <ImageGrid
+      images={images}
+      getImage={(ImageData: SearchResult) => (
+        <CloudinaryImage
+          key={ImageData.public_id}
+          imageData={ImageData}
+          width="400"
+          height="300"
+          alt="an image of something"
+        />
+      )}
+    />
+  );
 }
+
+
+
+
+
+
+

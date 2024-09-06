@@ -12,7 +12,7 @@ export default function UploadButton() {
     console.log("Upload Result:", result);
         if (result?.info?.public_id) {
         setTimeout(() => {
-            router.refresh(); 
+          router.refresh(); 
         }, 2000);
         }
   }

@@ -1,7 +1,5 @@
 import React, { ComponentProps } from "react";
 
-
-
 export default function Heart(props: ComponentProps<"div">) {
   return (
     <div {...props}>

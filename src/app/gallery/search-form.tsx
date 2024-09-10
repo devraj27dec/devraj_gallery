@@ -1,15 +1,39 @@
-"use client"
+"use client";
 
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { useRouter } from "next/navigation";
+import React, { FormEvent, useEffect, useState } from "react";
 
-import { Label } from '@/components/ui/label'
-import React from 'react'
+export default function SearchForm({
+  initialSearch,
+}: {
+  initialSearch: string;
+}) {
+  const [tagName, setTagName] = useState(initialSearch ?? "");
+  const router = useRouter();
 
-type Props = {}
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    router.replace(`/gallery/?search=${encodeURIComponent(tagName)}`);
+    router.refresh();
+  };
+  useEffect(() => {
+    setTagName(initialSearch);
+  }, [initialSearch]);
 
-export default function SearchForm({}: Props) {
   return (
-    <form>
-        <Label>SearchByTag</Label>
+    <form onSubmit={handleSubmit}>
+      <div className=" flex gap-3">
+        <Input
+          onChange={(e) => setTagName(e.currentTarget.value)}
+          id="tag-name"
+          value={tagName}
+          className=" w-[400px] border-2"
+          placeholder="Search By Tag"
+        />
+        <Button type="submit">Search</Button>
+      </div>
     </form>
-  )
+  );
 }

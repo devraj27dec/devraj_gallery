@@ -4,47 +4,42 @@ import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
     DropdownMenuTrigger,
-  } from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu"
   
-
 import React, { useState } from 'react'
 import Menu from './icons/menu'
+import { SearchResult } from '@/app/gallery/page'
+import AddToAlbumDialog from './add-to-album-dialog'
+import { Pencil } from 'lucide-react'
+import Link from 'next/link'
 
-type Props = {}
-
-export default function ImageMenu({}: Props) {
+export default function ImageMenu({image} : {image: SearchResult}) {
     
     const [open , setOpen] = useState(false)
   
     return (
-    <div className=' top-2 right-2'>
+    <div className='absolute top-2 right-2'>
         <DropdownMenu open={open} onOpenChange={setOpen}>
-            <DropdownMenuTrigger>
-                <Button variant="ghost">
+            <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className=' w-8 h-8 p-0'>
                     <Menu/>
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className=' w-40'>
                 <DropdownMenuItem asChild>
-                    <Button
+                    <AddToAlbumDialog image={image} onClose={() => setOpen(false)}/>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                    <Button 
+                     variant='ghost'
                      className=' cursor-pointer flex justify-start pl-4'
-                     asChild
-                     variant="ghost"
                     >
-                        Edit
+                        <Link href={`/transformation?publicId=${encodeURIComponent(image.public_id)}`}>
+                            <Pencil className=' mr-2 w-4 h-4'/>
+                            Edit
+                        </Link>
                     </Button>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-
                 </DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>

@@ -5,6 +5,7 @@ import React from "react";
 import { SearchResult } from "./page";
 import CloudinaryImage from "../../components/cloudinary-image";
 
+
 export default function GalleryGrid({ images }: { images: SearchResult[] }) {
   return (
     <ImageGrid
@@ -12,7 +13,7 @@ export default function GalleryGrid({ images }: { images: SearchResult[] }) {
       getImage={(ImageData: SearchResult) => (
         <CloudinaryImage
           key={ImageData.public_id}
-          imageData={ImageData}
+          imagedata={ImageData}
           width="400"
           height="300"
           alt="an image of something"

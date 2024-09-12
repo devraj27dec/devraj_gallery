@@ -24,12 +24,12 @@ export default function SearchForm({
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className=" flex gap-3">
+      <div className="flex gap-3 items-center">
         <Input
           onChange={(e) => setTagName(e.currentTarget.value)}
           id="tag-name"
           value={tagName}
-          className=" w-[400px] border-2"
+          className=" w-[400px] border-2 bg-transparent"
           placeholder="Search By Tag"
         />
         <Button type="submit">Search</Button>

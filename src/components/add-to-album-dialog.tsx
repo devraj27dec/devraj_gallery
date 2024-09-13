@@ -14,6 +14,7 @@ import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import addImageToAlbum from "./action";
 import { SearchResult } from "@/app/gallery/page";
+import toast from "react-hot-toast";
 
 export default function AddToAlbumDialog({
   image,
@@ -24,6 +25,14 @@ export default function AddToAlbumDialog({
 }) {
   const [albumName, setAlbumName] = useState("");
   const [open, setOpen] = useState(false);
+
+
+  const handleAlbumSuccess = async() => {
+    onClose();
+    setOpen(false);
+    await addImageToAlbum(image, albumName);
+    toast.success('File Uploaded Successfully !!')
+  }
 
 
   return (
@@ -64,14 +73,7 @@ export default function AddToAlbumDialog({
             </div>
           </div>
           <DialogFooter>
-            <Button
-              onClick={async () => {
-                onClose();
-                setOpen(false);
-                await addImageToAlbum(image, albumName);
-              }}
-              type="submit"
-            >
+            <Button onClick={handleAlbumSuccess}type="submit">
               Add to Album
             </Button>
           </DialogFooter>

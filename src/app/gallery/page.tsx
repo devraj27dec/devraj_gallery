@@ -4,6 +4,7 @@ import cloudinary from '@/utils/cloudinaryConfig'
 import SearchForm from "./search-form";
 
 
+
 export type SearchResult = {
   public_id: string;
   tags: string[]
@@ -25,6 +26,7 @@ export default async function GalleryPage({
   .execute()) as { resources: SearchResult[]};
   
   // console.log("results" , results);  
+
 
 
   return(

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Heart } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Image from "next/image";
+import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -94,8 +95,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={inter.className}>
-        <div className=" border-b">
+      <body className={inter.className}>    
+       <div className=" border-b">
           <div className=" flex h-16 items-center px-4">
             <Image src={'/album.png'} height='60' width='50' alt="logo"/>
             Devraj Gallery
@@ -110,10 +111,9 @@ export default function RootLayout({
             </div>
           </div>
         </div>
-
         <div className=" flex">
           <SideMenu />
-
+          <Toaster position="top-center" />
           <div className=" w-full px-4 pt-8">{children}</div>
         </div>
       </body>

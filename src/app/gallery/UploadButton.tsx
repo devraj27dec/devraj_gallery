@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { CldUploadButton } from "next-cloudinary";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 export default function UploadButton() {
   const router = useRouter();
@@ -14,6 +15,7 @@ export default function UploadButton() {
         router.refresh();
       }, 2000);
     }
+    toast.success('File Uploaded Successfully !!')
   };
   return (
     <Button asChild>

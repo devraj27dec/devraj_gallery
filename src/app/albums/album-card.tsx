@@ -12,7 +12,7 @@ import { Folder } from "./page";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
-export default function AlbumCard({folder}:{folder: Folder}) {
+export default async function AlbumCard({folder}:{folder: Folder}) {
   return (
     <Card>
       <CardHeader>
@@ -22,10 +22,10 @@ export default function AlbumCard({folder}:{folder: Folder}) {
       <CardContent></CardContent>
       <CardFooter className=" flex justify-between">
         <Button asChild variant={"outline"}>
-          <Link  href={`/albums/${folder.name}`}>View Album</Link>
+          <Link  href={`/albums/${folder.path}`}>View Album</Link>
         </Button>
-        <Button asChild>
-          <Link href={'/albums'}>Remove</Link>
+        <Button>
+          Remove
         </Button>
       </CardFooter>
     </Card>

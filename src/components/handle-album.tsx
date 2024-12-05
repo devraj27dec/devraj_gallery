@@ -25,16 +25,13 @@ export default function AddToAlbumDialog({
 }) {
   const [albumName, setAlbumName] = useState("");
   const [open, setOpen] = useState(false);
-
-
+  
   const handleAlbumSuccess = async() => {
     onClose();
     setOpen(false);
     await addImageToAlbum(image, albumName);
     toast.success('File Uploaded Successfully !!')
   }
-
-
   return (
     <Dialog
       open={open}
@@ -43,12 +40,11 @@ export default function AddToAlbumDialog({
         if(!newOpenState) {
           onClose()
         }
-      }}
-    >
+      }}>
       <DialogTrigger>
-        <Button variant="ghost">
+        <Button variant="secondary" className="w-full flex gap-2">
           <FolderPlus />
-          <span>Add to Album</span>
+          Add to Album  
         </Button>
         <DialogContent className="sm:max-w-[400px]">
           <DialogHeader>

@@ -10,7 +10,7 @@ import {
 import React, { useState } from 'react'
 import Menu from './icons/menu'
 import { SearchResult } from '@/app/gallery/page'
-import AddToAlbumDialog from './add-to-album-dialog'
+import AddToAlbumDialog from './handle-album'
 import { Pencil } from 'lucide-react'
 import Link from 'next/link'
 
@@ -32,15 +32,17 @@ export default function ImageMenu({image} : {image: SearchResult}) {
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
                     <Button 
-                     variant='ghost'
-                     className=' cursor-pointer flex justify-start pl-4'
-                    >
+                     variant="secondary"
+                     className='w-full flex justify-start pl-5 '>
                         <Link href={`/transformation?publicId=${encodeURIComponent(image.public_id)}`}>
-                            <Pencil className=' mr-2 w-4 h-4'/>
-                            Edit
+                            <div className='flex justify-center'>
+                                <Pencil className='mr-2 w-4 h-4'/>
+                                Edit
+                            </div>
                         </Link>
                     </Button>
                 </DropdownMenuItem>
+
             </DropdownMenuContent>
         </DropdownMenu>
 

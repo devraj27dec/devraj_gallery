@@ -11,7 +11,6 @@ export default async function addImageToAlbum(
 
   let parts = image.public_id.split("/");
 
-  te
   if (parts.length > 1) {
     parts = parts.slice(1);
   }
@@ -19,4 +18,10 @@ export default async function addImageToAlbum(
   const publicId = parts.join("/");
 
   await cloudinary.uploader.rename(image.public_id, `${album}/${publicId}`);
+}
+
+export  async function removeAlbum (album:string) {
+  
+  await cloudinary.api.delete_resources_by_prefix(`${album}/`);
+  await cloudinary.api.delete_folder(album)
 }

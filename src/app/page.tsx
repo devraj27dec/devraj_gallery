@@ -1,5 +1,4 @@
 "use client"
-
 import { CldImage, CldUploadWidget} from 'next-cloudinary'
 import { useState } from 'react';
 
@@ -19,6 +18,7 @@ export default function Home() {
       setImageId(result.info.public_id)
     }
   };
+
   return (
     <main className=" flex min-h-screen flex-col items-center justify-center ">
       <CldUploadWidget uploadPreset='gallery_app'

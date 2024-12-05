@@ -20,9 +20,12 @@ export default function AlbumCard({folder}:{folder: Folder}) {
         <CardDescription>All your {folder.name}</CardDescription>
       </CardHeader>
       <CardContent></CardContent>
-      <CardFooter>
+      <CardFooter className=" flex justify-between">
+        <Button asChild variant={"outline"}>
+          <Link  href={`/albums/${folder.name}`}>View Album</Link>
+        </Button>
         <Button asChild>
-          <Link href={`/albums/${folder.name}`}>View Album</Link>
+          <Link href={'/albums'}>Remove</Link>
         </Button>
       </CardFooter>
     </Card>

@@ -1,12 +1,10 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { CldImage } from "next-cloudinary";
-import { useState } from "react"
-
-
+import { useState } from "react";
 
 export default function TransformationPage({
   searchParams: { publicId },
@@ -14,13 +12,9 @@ export default function TransformationPage({
   searchParams: {
     publicId: string;
   };
-}  
-
-) {
-  
-
+}) {
   console.log(publicId);
-  
+
   const [transformation, setTransformation] = useState<
     | undefined
     | "generative-fill"
@@ -29,18 +23,18 @@ export default function TransformationPage({
     | "pixelate"
     | "bg-remove"
   >();
-  
+
   const [pendingPrompt, setPendingPrompt] = useState("");
-  const [prompt , setPrompt] = useState("")
-  
+  const [prompt, setPrompt] = useState("");
+
   return (
     <section>
-        <div className=" flex flex-col gap-8">
-          <div className=" flex justify-between">
-            <h1 className=" text-4xl font-bold">Transform {publicId}</h1>
-          </div>
+      <div className=" flex flex-col gap-8">
+        <div className=" flex justify-between">
+          <h1 className=" text-4xl font-bold">Transform {publicId}</h1>
+        </div>
 
-          <div className="flex gap-4">
+        <div className="flex gap-4">
           <Button variant="ghost" onClick={() => setTransformation(undefined)}>
             Clear All
           </Button>
@@ -131,5 +125,5 @@ export default function TransformationPage({
         </div>
       </div>
     </section>
-  )
+  );
 }

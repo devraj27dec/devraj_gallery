@@ -14,7 +14,6 @@ export default async function GalleryPage(
         }
     }
 ) {
-  
     const results = (await cloudinary.search
     .expression(`resource_type:image AND folder=${albumName}`)
     .sort_by('created_at','desc')

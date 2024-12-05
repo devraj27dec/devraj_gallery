@@ -10,11 +10,9 @@ export type Folder = {
 }
 
 export default async function AlbumsPage({folder}: {folder: Folder}) {
-  
   const {folders} = (await cloudinary.api.root_folders() as {
     folders : Folder[]
   }) 
-  
   return (
     <div className=' flex flex-col gap-8'>
       <div className="flex justify-between">
